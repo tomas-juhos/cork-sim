@@ -1,0 +1,4 @@
+[profile.default]
+src = "src/cork_sim/contracts"
+libs = ["lib"]
+out = "src/cork_sim/abi"

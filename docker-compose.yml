@@ -1,0 +1,39 @@
+
+# docker-compose.yml
+services:
+  anvil:
+    image: ghcr.io/foundry-rs/foundry:v1.1.0
+    command: >
+      anvil
+        --fork-url ${MAINNET_RPC}
+        --fork-block-number 18_000_000
+        --hostname 0.0.0.0
+        --port 8545
+    environment:
+      - MAINNET_RPC=${MAINNET_RPC}
+    ports:
+      - "8545:8545"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8545"]
+      interval: 5s
+      retries: 5
+
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    working_dir: /app
+    volumes:
+      - ./:/app:cached
+    depends_on:
+      - anvil
+
+    # override the image's ENTRYPOINT (which is 'ape')
+    entrypoint: [ "/bin/bash", "-lc" ]
+    # now this runs in bash, not as an Ape subcommand
+    command: [ "tail", "-f", "/dev/null" ]
+
+    # keep it alive for exec’ing into
+    stdin_open: true
+    tty: true
+
