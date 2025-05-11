@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class ContractAdresses(Enum):
+class ContractAddresses(Enum):
 
     CORK_CONFIG = "0xF0DA8927Df8D759d5BA6d3d714B1452135D99cFC"
 
