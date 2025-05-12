@@ -23,3 +23,8 @@ docker-compose down
 ```commandline
 ape pm install
 ```
+
+### Step-in local ape console
+```commandline
+ape console --network ethereum:local:foundry
+```

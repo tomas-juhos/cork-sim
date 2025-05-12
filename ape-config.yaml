@@ -7,7 +7,7 @@ ethereum:
       url: http://anvil:8545
       chain_id: 1
 
-contracts_folder: src/cork_sim/contracts
+contracts_folder: contracts
 
 dependencies:
   - name: OpenZeppelin
