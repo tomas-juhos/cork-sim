@@ -4,7 +4,7 @@
 
 ### Spin-up
 ```commandline
-docker-compose up -d anvil dev
+docker-compose up -d dev
 ```
 
 ### Step-in
@@ -19,12 +19,12 @@ docker-compose down
 
 ## Ape Environment
 
-### Install Dependencies
-```commandline
-ape pm install
-```
-
 ### Step-in local ape console
 ```commandline
 ape console --network ethereum:local:foundry
+```
+
+### Run script
+```commandline
+ape run <script> --network ethereum:local:foundry
 ```
