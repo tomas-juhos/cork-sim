@@ -6,7 +6,6 @@ from ape import Contract
 from .addresses import ContractAddresses
 
 
-
 def main():
     cork_config = Contract(ContractAddresses.CORK_CONFIG.value)
     cork_flashswap_router = Contract(ContractAddresses.CORK_FLASHSWAP_ROUTER.value)
